@@ -1,0 +1,139 @@
+<div class="row">
+	<div class="col-sm-2">
+	</div>
+	
+	<div class="col-sm-8">
+		<form name="updateHouseForm" class="form-horizontal" data-ng-submit="updateHouse()">   <!-- used ngSubmit here -->
+			<div class="row">
+				<div class="col-sm-5">
+					<div class="form-group">
+    					<label for="name">Property Name</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="name" data-ng-model="newHouse.name">
+					</div>
+
+					<div class="form-group">
+						<label>Select Property Type</label>
+						<select class="form-control" data-ng-value="propertyType" data-ng-model="newHouse.propertyType">
+      						<option value="Apartment">Apartment</option>
+      						<option value="House">House</option>
+      						<option value="Loft">Loft</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+						<label>Select Room Type</label>
+						<select class="form-control" data-ng-value="roomType" data-ng-model="newHouse.roomType">
+      						<option value="Entire home/apt">Entire home/apt</option>
+      						<option value="Private room">Private room</option>
+      						<option value="Shared room">Shared room</option>
+						</select>
+					</div>
+
+					<div class="form-group">
+    					<label>Summary</label>
+    					<input type="text" class="form-control" data-ng-value="summary" data-ng-model="newHouse.summary">
+					</div>
+
+					<div class="form-group">
+    					<label>Space</label>
+    					<input type="text" class="form-control" data-ng-value="space" data-ng-model="newHouse.space">
+					</div>
+
+					<div class="form-group">
+    					<label>Description</label>
+    					<input type="text" class="form-control" data-ng-value="decription" data-ng-model="newHouse.description">
+					</div>
+
+					<div class="form-group">
+    					<label>Number of Guests</label>
+    					<input type="text" class="form-control" data-ng-value="accommodates" data-ng-model="newHouse.accommodates">
+					</div>
+
+					<!-- <div class="form-group">
+						<label for="picture">Main house Photo:</label>
+						<input class="btn btn-default" type="file"  data-ng-file-select="onFileSelect($files)" data-ng-model="newHouse.image_URL" >
+						<p id="whiteText">{{image_URL}}</p>
+					</div>-->
+				</div>
+				<div class="col-sm-2"></div>
+				<div class="col-sm-5">
+					<div class="form-group">
+    					<label for="name">Bathrooms</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="bathrooms" data-ng-model="newHouse.bathrooms">
+					</div>
+
+					<div class="form-group">
+    					<label for="name">Bedrooms</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="bedrooms" data-ng-model="newHouse.bedrooms">
+					</div>
+
+					<div class="form-group">
+    					<label for="name">Beds</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="beds" data-ng-model="newHouse.beds">
+					</div>
+
+					<div class="form-group">
+						<label>Select Bed Type</label>
+						<select class="form-control" data-ng-value="bedType" data-ng-model="newHouse.bedType">
+      						<option value="Real Bed">Real Bed</option>
+      						<option value="Pull-out Sofa">Pull-out Sofa</option>
+      						<option value="Couch">Couch</option>
+      						<option value="Futon">Futon</option>      
+						</select>
+					</div>
+
+					<div class="form-group">
+    					<label for="name">Square Feet</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="squareFeet" data-ng-model="newHouse.squareFeet">
+					</div>
+
+
+					<!-- Amenities -->
+
+					<div class="checkbox">
+						<label><input type="checkbox" data-ng-value="tv" data-ng-model="newHouse.tv">TV</label>
+						<label><input type="checkbox" data-ng-value="wifi" data-ng-model="newHouse.wifi">Wireless Internet</label>
+						<label><input type="checkbox" data-ng-value="heating" data-ng-model="newHouse.heating">Heating</label>
+						<label><input type="checkbox" data-ng-value="kitchen" data-ng-model="newHouse.kitchen">Kitchen</label>
+						<label><input type="checkbox" data-ng-value="parking" data-ng-model="newHouse.parking">Parking</label>
+						<label><input type="checkbox" data-ng-value="elevator" data-ng-model="newHouse.elevator">Elevator</label>
+						<label><input type="checkbox" data-ng-value="ac" data-ng-model="newHouse.ac">Air Conditioning</label>						
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group">
+    					<label for="name">Daily Price</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="price" data-ng-model="newHouse.price">
+					</div>
+
+					<div class="form-group">
+    					<label for="name">Weekly Price</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="weeklyPrice" data-ng-model="newHouse.weeklyPrice">
+					</div>
+
+					<div class="form-group">
+    					<label for="name">Monthly Price</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="monthlyPrice" data-ng-model="newHouse.monthlyPrice">
+					</div>
+
+					<div class="form-group">
+    					<label for="name">Extra People Fee</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="extraPeople" data-ng-model="newHouse.extraPeople">
+					</div>
+
+					<div class="form-group">
+   						<label for="name">Cleaning Fee</label>
+    					<input type="text" class="form-control" name="name" data-ng-value="cleaningFee" data-ng-model="newHouse.cleaningFee">
+					</div>
+				</div>
+				<input class="btn btn-default btn-block btn-primary" type="submit" value="Update" />
+			</div>	
+			</form>
+	</div>
+	
+	<div class="col-sm-2">
+	</div>
+	
+</div>

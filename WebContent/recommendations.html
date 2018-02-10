@@ -1,0 +1,30 @@
+<div class="row">
+		<h2>Recommendations</h2>
+  		<div data-ng-repeat="house in house_list|limitTo:3">
+  			<div class="col-sm-4">
+  			  <div class="panel panel-default">
+    				<div class="panel-heading"><h3>{{house.name}}</h3></div>
+    				<div class="panel-body">
+    					<div class="row">
+    						<div class="col-sm-3">
+    					    	<img data-ng-if="house.pictureURL == 'undefined'"class="img-responsive" src="images/house.jpg" data-ui-sref="room({houseID: house.houseID})" />
+        						<img data-ng-if="house.pictureURL !== 'undefined'"class="img-responsive" src="{{house.pictureURL}}" data-ui-sref="room({houseID: house.houseID})"/>
+    						</div>
+    						<div class="col-sm-9">
+    							<ul>
+    								<li>City: {{house.city}}</li>
+    								<li>Address: {{house.street}}</li>
+									<li>Country: {{house.country}}</li> 
+    								<li>Postal Code: {{house.zipcode}}</li>   								    								
+    								<li>Price per night: {{house.price}}&euro;</li>
+    								<li>Cleaning Fee: {{house.cleaningFee}}&euro;</li>    								
+    								<li>Accommodates: {{house.accommodates}}</li>    								
+    							</ul>
+    						</div>
+    						
+    						</div>
+    					</div>
+    				</div>
+  			  </div>
+		</div>		
+</div>

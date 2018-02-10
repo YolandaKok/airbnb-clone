@@ -1,0 +1,243 @@
+#title 
+{
+	color: #FF5A5F;
+	font-size: 48px !important;
+	font-family: 'Courgette', cursive;	
+}
+
+#reg 
+{
+	font-size: 24px !important;
+	font-family: 'Courgette', cursive;
+	padding-left: 30px !important;
+	padding-top: 30px !important;
+	color: #FF5A5F;
+}
+
+
+
+li 
+{
+	cursor: pointer;
+}
+
+a 
+{
+	cursor: pointer;	
+}
+
+// Profile 
+
+#edit 
+{
+	cursor: pointer;
+	
+}
+
+#panel
+{
+	margin-top: 10px;
+}
+
+
+
+
+/* BASIC STYLINGS
+============================================================================= */
+body                            { padding-top:20px; }
+pre                             { margin-bottom:20px; }
+
+/* form styling */
+#form-container                { background:#2f2f2f; margin-bottom:20px;
+    border-radius:5px; }
+#form-container .page-header   { background:#151515; margin:0; padding:30px; 
+    border-top-left-radius:5px; border-top-right-radius:5px; }
+
+/* numbered buttons */
+#status-buttons                 {  }
+#status-buttons a               { color:#FFF; display:inline-block; font-size:12px; margin-right:10px; text-align:center; text-transform:uppercase; }
+#status-buttons a:hover         { text-decoration:none; }
+#status-buttons span            { background:#080808; display:block; height:30px; margin:0 auto 10px; padding-top:5px; width:30px; 
+    border-radius:50%; }
+
+/* active buttons */
+#status-buttons a.active span   { background:#00BC8C; }
+
+/* ANIMATION STYLINGS
+============================================================================= */
+#signup-form            { position:relative; min-height:300px; overflow:hidden; padding:30px; }
+
+/* basic styling for entering and leaving */
+/* left and right added to ensure full width */
+#form-views.ng-enter,
+#form-views.ng-leave      { position:absolute; left:30px; right:30px;
+    transition:0.5s all ease; -moz-transition:0.5s all ease; -webkit-transition:0.5s all ease; 
+}
+    
+/* enter animation */
+#form-views.ng-enter            { 
+    -webkit-animation:slideInRight 0.5s both ease;
+	-moz-animation:slideInRight 0.5s both ease;
+	animation:slideInRight 0.5s both ease; 
+}
+
+/* leave animation */
+#form-views.ng-leave            { 
+    -webkit-animation:slideOutLeft 0.5s both ease;
+	-moz-animation:slideOutLeft 0.5s both ease;
+	animation:slideOutLeft 0.5s both ease;   
+}
+
+#signup-form label 
+{
+	color: white;
+}
+
+/* ANIMATIONS
+============================================================================= */
+/* slide out to the left */
+@keyframes slideOutLeft {
+	to 		{ transform: translateX(-200%); }
+}
+@-moz-keyframes slideOutLeft {	
+	to 		{ -moz-transform: translateX(-200%); }
+}
+@-webkit-keyframes slideOutLeft {
+	to 		{ -webkit-transform: translateX(-200%); }
+}
+
+/* slide in from the right */
+@keyframes slideInRight {
+	from 	{ transform:translateX(200%); }
+	to 		{ transform: translateX(0); }
+}
+@-moz-keyframes slideInRight {
+	from 	{ -moz-transform:translateX(200%); }
+	to 		{ -moz-transform: translateX(0); }
+}
+@-webkit-keyframes slideInRight {
+	from 	{ -webkit-transform:translateX(200%); }
+	to 		{ -webkit-transform: translateX(0); }
+}
+/*admin*/
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+
+.dropdown-user {
+    margin: 13px 0;
+    padding: 5px;
+    height: 100%;
+}
+
+.dropdown-user:hover {
+    cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+    border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+    border-top: 0;
+}
+
+.box {
+        width:200px;
+        height:200px;
+        background:#0088cc;
+        padding:2%;
+        display: table-cell;
+        text-align: center;
+        vertical-align: bottom;
+    }
+/*end_admin*/
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+
+#map { 
+    height: 400px;
+    border-radius: 5px;
+    border: 1px solid silver;
+}
+
+
+#house {
+	width: 100%;
+	background-image: url("images/entire-home.png");
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+
+
+
+hr {
+	border-color: #767676;
+}
+
+
+.list-inline {
+	padding-top: 20px;
+}
+
+.fading-letters {
+	color: #767676;
+}
+
+.svg {
+	color: #767676;
+	border-color: #767676;
+	height: 50px;
+	width: 50px;
+}
+
+.pad {
+	padding-top: 10px;
+	font-size: 14px;
+}
+
+body{
+    margin: 0;
+    padding:0;
+}
+
+
+.row{
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
+
+
+
+#navli {
+	padding-right: 25px;
+}
+
+
+h1 {
+	font-size: 32px !important;
+}
+
+.navbar {
+	margin-right: -20px;
+	margin-left: -20px;	
+}
+
+#whiteText {
+	color: white;
+}
+
+.cur {
+	cursor: pointer;
+}
+

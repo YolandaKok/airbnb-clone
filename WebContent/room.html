@@ -1,0 +1,224 @@
+<div data-ng-controller="reviewCtrl">
+<div class="container-fluid no-padding">
+<form name="ReviewForm" data-ng-submit="btn_post()">
+	<div class="row">
+		<div class="col-sm-12">
+			<div id="house"></div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-4">
+		<a href="#" data-ng-click="boxShow=!boxShow">Contact Host</a>
+			<div data-ng-show="boxShow">
+            	<div class="input-group">
+    				<textarea class="form-control custom-control" rows="3" style="resize:none " data-ng-model="msg"></textarea>     
+	    			<span class="input-group-addon btn btn-primary" data-ng-click="sendMessage(msg)">Send</span>
+				</div>
+        	</div>
+		</div>
+			
+		<div class="col-sm-4">
+			<img  data-ng-if="pictureURL !== 'undefined'" class="text-center img-responsive" src="{{pictureURL}}" style="width: 100%;">
+			<img data-ng-if="pictureURL == 'undefined'"class="img-responsive" src="images/house.jpg" style="width: 100%;">
+			
+			<ul class="list-inline">
+  				<li><a href="#about">Summary</a></li>
+  				<li><a href="#reviews">Reviews</a></li>
+  				<li><a href="#host">Host</a></li>
+  				<li><a href="#location">Location</a></li>
+			</ul>
+			<hr>
+			<!-- Title and host photo -->
+			<div class="row">
+				<div class="col-sm-10">
+					<h1><b>{{name}}</b></h1>
+					<jk-rating-stars rating="average" read-only="true" ></jk-rating-stars>
+					<span class="fading-letters">{{hostName}}, {{city}}, {{country}}</span>
+				</div>
+				
+				<div class="col-sm-2 text-center">
+					<!-- Host Photo - Go to Host About -->
+					<a href="#host"><img src="{{imgSrc}}" class="img-responsive userImage" /></a>
+					<!-- Name of the Host -->
+					<a href="#host"><span class="fading-letters">{{hostName}}</span></a>
+				</div>
+			</div>
+			
+			<hr>
+			<div class="row">
+				<div class="col-sm-3 text-center">
+					<img class="svg" src="images/guests.png"/>
+					<h3>{{accommodates}}</h3>
+				</div>	
+				<div class="col-sm-3 text-center">
+					<img class="svg" src="images/home.png"/>
+					<h3>{{propertyType}}</h3>
+				</div>
+				<div class="col-sm-3 text-center">
+					<img class="svg" src="images/real-bed.png"/>
+					<h3>{{bedType}}</h3>
+				</div>
+				<div class="col-sm-3 text-center">
+					<img class="svg" src="images/bathroom.png"/>
+					<h3>{{bathrooms}}</h3>
+				</div>											
+			</div>
+			<hr>
+			<h3 id="about">About</h3>
+			<p>{{summary}}</p>
+			<!-- Section: Information About the place -->
+			<hr>
+
+			<div class="row">
+				<!--  -->
+				<div class="col-sm-4">
+					<hr>	
+					<p class="text-center"><b>Apartment</b></p>
+					<hr>					
+				</div>
+				<div class="col-sm-4">
+					<p class="pad">People: {{accommodates}}</p>
+					<p class="pad">Bathrooms: {{bathrooms}}</p>
+					<p class="pad">Bedrooms: {{bedrooms}}</p>
+					<p class="pad">Beds: {{beds}}</p>
+				</div>
+				<!--  -->
+				<div class="col-sm-4">
+					<p class="pad">Property Type: {{propertyType}}</p>
+					<p class="pad">Bed Type: {{bedType}}</p>
+				</div>				
+			</div>
+			<hr>
+			
+			<!-- Extra Facilities -->
+			<div class="row">
+				<!--  -->
+				<div class="col-sm-4">
+					<hr>	
+					<p class="text-center"><b>Facilities</b></p>
+					<hr>					
+				</div>
+				<div class="col-sm-4">
+					<p class="pad" data-ng-if="wifi == true">Internet</p>
+					<p class="pad" data-ng-if="tv == true">TV</p>
+					<p class="pad" data-ng-if="kitchen == true">Kitchen</p>
+					<p class="pad" data-ng-if="elevator == true">Elevator</p>
+					<p class="pad" data-ng-if="parking == true">Parking</p>
+					<p class="pad" data-ng-if="heating == true">Heating</p>															
+					<p class="pad">Bedrooms: {{bedrooms}}</p>
+					<p class="pad">Beds: {{beds}}</p>
+				</div>
+				<!--  -->
+				<div class="col-sm-4">
+					
+				</div>				
+			</div>
+			<hr>
+			
+			<!-- Price -->
+			
+			<div class="row">
+				<!--  -->
+				<div class="col-sm-4">
+					<hr>	
+					<p class="text-center"><b>Price</b></p>
+					<hr>					
+				</div>
+				<div class="col-sm-4">
+					<p class="pad">Price per night: {{price}}</p>
+					<p class="pad">Weekly Price: {{weeklyPrice}}</p>
+					<p class="pad">Monthly Price: {{monthlyPrice}}</p>
+
+				</div>
+				<!--  -->
+				<div class="col-sm-4">
+					<p class="pad">Extra People: {{extraPeople}}</p>
+					<p class="pad">Cleaning Fee: {{cleaningFee}}</p>
+				</div>				
+			</div>
+			<hr>	
+			<div class="row" id="host">
+					<h3>About Host</h3>
+				<div class="col-sm-10"></div>
+				<div class="col-sm-2">
+					<a data-ui-sref="profile({ userID: usID })"><img src="{{imgSrc}}" class="img-responsive userImage" /></a>
+					<a data-ui-sref="profile({userID: usID})">{{hostName}}</a>
+				</div>
+			</div>
+			<hr>
+			<div id="location" class="row">
+				<div class="col-sm-12">
+					<h3>Location</h3>
+					<div id="map"></div>
+					<p>The exact location will appear after the reservation</p>
+				</div>	
+			</div>
+			<hr>
+			<div id="reviews" class="row">
+				<div class="col-sm-12">
+						<div class="form-group">
+							<textarea class="form-control" rows="5" ng-model="newreview.comments" placeholder="Your Comment"></textarea>
+							<br/>
+							<jk-rating-stars rating="firstRate" ></jk-rating-stars>
+							<br/>
+							<input class="btn btn-default" type="submit" value="Comment"/>
+							<br/>
+							<hr/>				
+							<h3>Comments</h3>
+							<ul class="list-group">
+							<li class="list-group-item" ng-repeat="cmt in reviews | filter: { houseID: id2 }" >
+									<div ng-repeat="user in users">
+									<div data-ng-if="user.userID == cmt.reviewerID">
+									<a data-ui-sref="profile({ userID: cmt.reviewerID })"><img src={{user.final_image}} class="img-circle"   style="width:15%" /> {{user.username}}</a>
+									<i>says:</i>	
+									<br>
+									{{cmt.comments}}
+									<br>
+				      				<jk-rating-stars rating="cmt.stars" read-only="true" ></jk-rating-stars>
+									</div>
+									</div>
+							</li>
+							</ul>
+						</div>			
+				</div>	
+			</div>
+			<hr>
+		</div>
+			
+		<div class="col-sm-2">
+			<div class="panel-group" style="position:fixed;">
+    			<div class="panel panel-default">
+      				<div class="panel-heading" >{{price}}&euro; per night</div>
+      				<div class="panel-body">                    
+      					<!-- <input date-range-picker id="daterange1" name="daterange1" class="form-control date-picker" type="text" ng-model="date" required/> -->
+      					<button class="btn btn-primary btn-block" data-ng-click="check()">Check availability</button>
+      					<button class="btn btn-default btn-block" data-ng-click="need_login_book()" data-ng-if="connected=='undefined'">Book now</button>
+      					<button class="btn btn-default btn-block" data-ng-click="book()" data-ng-if="connected!=='undefined'">Book now</button>
+      					<div data-ng-if="c == 1">
+      					<hr>
+  						<p>{{price}} &euro; X {{numDates}} &euro; = {{priceResult}} &euro;</p>    					
+      					<hr>
+      					<p>Cleaning Fee: {{cleaningFee}} &euro;</p>
+      					<hr>
+      					<p>Final Price: {{finalSum}} &euro;</p>
+      					
+      					<div class="alert alert-success">
+  							<p>{{success}}</p>
+						</div>
+      					
+						<div class="alert alert-warning">
+  							<p>{{warning}}</p>
+						</div>
+						</div>
+      				</div>
+    			</div>
+			</div>
+			</div>
+			<div class="col-sm-2"></div>
+		</div>
+</form> 
+</div>
+</div>
+
+

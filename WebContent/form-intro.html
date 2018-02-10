@@ -1,0 +1,76 @@
+
+<div class="form-group">
+	<label>Insert Address</label>
+	<input name="place" type="text" class="form-control" places-auto-complete ng-model="vm.address" on-place-changed="vm.placeChanged()" required autofocus />
+</div>
+
+<div class="form-group">
+    <label for="name">Property Name</label>
+    <input type="text" class="form-control" name="name" data-ng-model="newhouse.name">
+</div>
+
+<div class="form-group">
+	<label>Select Property Type</label>
+	<select class="form-control" data-ng-model="newhouse.propertyType">
+      <option value="Apartment">Apartment</option>
+      <option value="House">House</option>
+      <option value="Loft">Loft</option>
+	</select>
+</div>
+
+<div class="form-group">
+	<label>Select Room Type</label>
+	<select class="form-control" data-ng-model="newhouse.roomType">
+      <option value="Entire home/apt">Entire home/apt</option>
+      <option value="Private room">Private room</option>
+      <option value="Shared room">Shared room</option>
+	</select>
+</div>
+
+<div class="form-group">
+    <label>Summary</label>
+    <input type="text" class="form-control" data-ng-model="newhouse.summary">
+</div>
+
+<div class="form-group">
+    <label>Space</label>
+    <input type="text" class="form-control" data-ng-model="newhouse.space">
+</div>
+
+<div class="form-group">
+    <label>Description</label>
+    <input type="text" class="form-control" data-ng-model="newhouse.description">
+</div>
+
+<div class="form-group">
+    <label>Select Number of Guests</label>
+	<select class="form-control" data-ng-model="newhouse.accommodates">
+      	<option value="1">1</option>
+      	<option value="2">2</option>
+      	<option value="3">3</option>
+      	<option value="4">4</option>
+      	<option value="5">5</option>      					      					
+      	<option value="6">6</option>      					      					
+      	<option value="7">7</option>      					      					
+      	<option value="8">8</option>      					      					
+      	<option value="9">9</option>      					      					
+      	<option value="10">10</option>      					      					
+      	<option value="11">11</option>      					      					
+      	<option value="12">12</option>      					      					
+	</select>   
+</div>
+
+<div class="form-group">
+	<label for="picture">Main house Photo:</label>
+	<input class="btn btn-default" type="file"  data-ng-file-select="onFileSelect($files)" data-ng-model="newhouse.image_URL" >
+	<p id="whiteText">{{image_URL}}</p>
+</div>
+
+
+<div class="form-group row">
+<div class="col-xs-6 col-xs-offset-3">
+    <a data-ui-sref="new.location" class="btn btn-block btn-info">
+    Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+    </a>
+</div>
+</div>

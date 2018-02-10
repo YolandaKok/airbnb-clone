@@ -1,0 +1,141 @@
+<div>
+    <div class="container-fluid">
+    	<div class="row">
+    	
+
+
+		<div class="col-sm-1">
+		<rzslider rz-slider-model="slider.min" rz-slider-high="slider.max" rz-slider-options="slider.options"></rzslider>
+		<button class="btn btn-default btn-block" data-toggle="collapse" data-target="#demo">Amenities</button>
+		<div id="demo" class="collapse">
+		<ul class="list-group">
+		
+		<li class="list-group-item">
+				<div class="checkbox">
+  			<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value1">TV</label>
+		</div>
+		</li>
+
+		<li class="list-group-item">
+				<div class="checkbox">
+  			<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value2">Elevator</label>
+		</div>
+		</li>	
+
+		<li class="list-group-item">
+				<div class="checkbox">
+  			<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value3">AC</label>
+		</div>
+		</li>
+
+		<li class="list-group-item">
+		<div class="checkbox">
+  			<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value4">Heating</label>
+		</div>
+		
+		</li>	
+		
+		<li class="list-group-item">
+		<div class="checkbox">
+  			<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value5">Kitchen</label>
+		</div>
+		</li>
+		
+			<li class="list-group-item">
+		<div class="checkbox">
+  			<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value6">Parking</label>
+		</div>			
+			</li>
+
+			<li class="list-group-item">
+		<div class="checkbox">
+  			<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value7">WIFI</label>
+		</div>			
+			</li>
+
+		</ul>
+		</div>
+		
+		<!-- Filter for propertyType -->
+		<button class="btn btn-default btn-block" data-toggle="collapse" data-target="#property">Property Type</button>
+		
+		<div id="property" class="collapse">
+			
+			<div class="checkbox">
+				<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value8">Apartment</label>
+			</div>
+				
+			<div class="checkbox">
+				<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value9">House</label>
+			</div>	
+			
+			<div class="checkbox">
+				<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value10">Loft</label>				
+			</div>
+								
+		</div>
+		
+		<button class="btn btn-default btn-block" data-toggle="collapse" data-target="#room">Room Type</button>
+		
+		<div id="room" class="collapse">
+			<div class="checkbox">
+				<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value11">Entire home/apt</label>
+			</div>
+				
+			<div class="checkbox">
+				<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value12">Private Room</label>
+			</div>	
+			
+			<div class="checkbox">
+				<label><input data-ng-click="filter()" type="checkbox" data-ng-model="value13">Shared Room</label>				
+			</div>
+								
+		</div>
+		
+		
+		</div>
+		
+		<div class="col-sm-11">
+    	<div data-ng-repeat="house in retrieve_houses.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:byRange('price', slider.min, slider.max)" class="col-md-4 text-center">
+        	
+        	<div class="cur">
+  
+        	<div class="row">
+        		<div class="col-sm-2">
+        			<!-- Filters ! -->
+
+        		</div>
+        		<div class="col-sm-8">
+        			<img data-ng-if="house.pictureURL == 'undefined'"class="img-responsive" src="images/house.jpg" data-ui-sref="room({houseID: house.houseID})"/>
+        			<img data-ng-if="house.pictureURL !== 'undefined'"class="img-responsive" src="{{house.pictureURL}}" data-ui-sref="room({houseID: house.houseID})"/>
+        			<div class="row">
+        				
+        				<div class="col-sm-12">
+        					<p>From: &euro;{{house.price}}</p>
+        					<p>{{house.name}}</p>
+        					<p>{{house.propertyType}}</p>
+        					<p>{{house.bedType}}</p>     
+        				</div>
+        				        				
+        			</div>
+        			
+        			
+        		</div>
+        		<div class="col-sm-2"></div>
+        	</div>
+        	</div>
+        	
+    	</div>
+
+	<div class="row">
+		<div class="col-sm-12">
+			<pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></pagination>
+		</div>
+	</div>
+	
+	</div>
+	
+	</div>
+	</div>
+</div>
+

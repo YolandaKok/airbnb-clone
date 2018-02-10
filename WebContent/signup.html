@@ -1,0 +1,61 @@
+
+    
+	<div class="row">
+		<div class="col-sm-4">
+      	</div>
+      	
+      	<div class="col-sm-4">
+			<div data-ng-controller="signupCtrl">
+			<form name="signupForm" class="form-horizontal" data-ng-submit="insertUser(signupForm.$valid)" novalidate>   <!-- used ngSubmit here -->
+				<div class="form-group">
+					<label for="username">Username:</label>
+					<input class="form-control" name="username" type="text" data-ng-model="newuser.username" data-ng-keyup='checkName(newuser.username)' data-ng-minlength="3" data-ng-maxlength="15" required/>
+					<p data-ng-value="isSameName"></p>
+					  <p ng-show="signupForm.username.$error.minlength" class="help-block">Username is too short.</p>
+					  <p ng-show="signupForm.username.$error.maxlength" class="help-block">Username is too long.</p>
+				</div>
+				<div id="n" class="alert alert-danger" data-ng-if="isSameName">username exists already</div>
+				<div class="form-group">	
+					<label for="firstName">First Name:</label>
+					<input class="form-control" id="firstName" type="text" data-ng-model="newuser.firstName" required/>
+				</div>
+				<div class="form-group">	
+					<label for="lastName">Last Name:</label>
+					<input class="form-control" id="lastName" type="text" data-ng-model="newuser.lastName" required/>
+				</div>
+				
+				<div class="form-group">	
+					<label for="email">Email:</label>
+					<input class="form-control" name="email" type="email" data-ng-model="newuser.email" data-ng-keyup='checkEmail(newuser.email)' required/>
+					<p data-ng-value="isSameEmail"></p>
+					<p ng-show="signupForm.email.$invalid && !signupForm.email.$pristine" class="help-block">Enter a valid email.</p>
+					
+				</div>
+				<div class="alert alert-danger" data-ng-if="isSameEmail">email exists already</div>
+				
+				<div class="form-group">	
+					<label for="birthday">Birthday:</label>
+      				<md-datepicker data-ng-model="newuser.birthday" md-placeholder="Enter date"></md-datepicker>
+				</div>
+				
+				<div class="form-group">	
+					<label for="password">Password:</label>
+					<input class="form-control" id="password" type="password" data-ng-model="newuser.password" required/>
+				</div>
+				
+				<div class="form-group">	
+					<label for="verify">Verify Password:</label>
+					<input class="form-control" id="verify" type="password" data-ng-model="verifyPass" required/>
+				</div>
+				<div class="alert alert-danger" data-ng-if="newuser.password !== verifyPass ">Password does not match.</div>
+				
+				<input class="btn btn-default" type="submit" value="save" data-ng-disabled="isSameName || isSameEmail || signupForm.$invalid || newuser.password !== verifyPass"/>
+
+			</form>
+			</div>
+		</div>
+		
+		<div class="col-sm-4">
+      	</div>
+      	
+	</div>

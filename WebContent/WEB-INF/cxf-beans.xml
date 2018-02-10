@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+	http://cxf.apache.org/jaxws 
+	http://cxf.apache.org/schemas/jaxws.xsd 
+	http://cxf.apache.org/jaxrs 
+	http://cxf.apache.org/schemas/jaxrs.xsd">
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<bean id="Users" class="rest.UserEndpoint" />
+	<bean id="Houses" class="rest.HouseEndpoint" />
+	<bean id="Reviews" class="rest.ReviewEndpoint" />	
+	<bean id="Calendar" class="rest.CalendarEndpoint" />
+	<bean id="Messages" class="rest.MessageEndpoint" />		
+	<jaxrs:server id="base" address="/">	
+		<jaxrs:serviceBeans>
+			<ref bean="Users"/>
+			<ref bean="Houses"/>
+			<ref bean="Reviews"/>
+			<ref bean="Calendar"/>
+			<ref bean="Messages" />						
+		</jaxrs:serviceBeans>
+		<jaxrs:providers>
+			<!-- bean class="utilities.CustomJSONProvider"/-->
+			<bean class="com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider"/>
+		</jaxrs:providers>
+	</jaxrs:server>
+</beans>

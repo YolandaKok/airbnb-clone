@@ -1,0 +1,22 @@
+<br>
+<br>
+<div class="row">
+		<div class="col-sm-5"></div>
+       <div class="col-sm-2">  
+			<form class="form-horizontal" data-ng-submit="login()">   <!-- used ngSubmit here -->
+			<div class="form-group">
+			<label for="username">Username:</label>
+			<input class="form-control"  id="username" type="text" data-ng-model="logininfo.username"/> <br>
+			</div>
+			<div class="form-group">
+			<label for="password">Password:</label>
+			<input class="form-control"  id="password" type="password" data-ng-model="logininfo.password"/><br>
+			</div>		
+		    <input data-ng-click="changeID()" class="btn btn-default" type="submit" value="Login"/>
+		    <p data-ng-value="authentication"></p>
+			<div class="alert alert-danger" data-ng-if="authentication">Authentication failed</div>					
+			</form>
+</div>
+	<div class="col-sm-5"></div>				
+</div>
+

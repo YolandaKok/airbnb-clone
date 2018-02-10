@@ -1,0 +1,51 @@
+<div class="row">
+
+<div class="col-sm-1"></div>
+
+<div class="col-sm-7" data-ng-controller="houseCtrl">
+
+  <div id="form-container">
+  
+      <div class="page-header text-center">
+          <h2>House Information</h2>
+          
+          <!-- the links to our nested states using relative paths -->
+          <!-- add the active class if the state matches our ui-sref -->
+          <div id="status-buttons" class="text-center">
+              <a data-ui-sref-active="active" data-ui-sref=".intro"><span>1</span> Summary</a>
+              <a data-ui-sref-active="active" data-ui-sref=".location"><span>2</span> Location</a>
+              <a data-ui-sref-active="active" data-ui-sref=".facilities"><span>3</span> Facilities</a>
+              <a data-ui-sref-active="active" data-ui-sref=".price"><span>4</span> Price</a>
+          </div>
+      </div>
+	  <a data-ui-sref=".intro" class="btn btn-default btn-block">Start</a>				
+      <!-- use ng-submit to catch the form submission and use our Angular function -->
+      <form id="signup-form" data-ng-submit="processForm()">
+          <!-- our nested state views will be injected here -->
+          <div id="form-views" data-ui-view></div>
+      </form>
+  
+  </div>
+  
+</div>
+
+<div class="col-sm-3">
+
+</div>
+
+<div class="col-sm-1"></div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+

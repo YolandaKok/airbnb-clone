@@ -1,0 +1,89 @@
+<br><br>
+<div class="container" data-ng-controller="adminCtrl" >
+<form name="adminForm" data-ng-submit="Accept()">   <!-- used ngSubmit here -->
+ 	<div class="item" ng-repeat="future_host in needApproval">
+	<div class="well col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2">
+        <div class="row user-row">
+            <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+            	<img data-ng-if="future_host.final_image!==''" class="img-responsive" src="{{future_host.final_image}}" alt="Profile Picture">
+            	
+                <img data-ng-if="future_host.final_image==''"
+                                     alt="User Pic" src="https://www.humanrights.gov.au/sites/default/files/styles/large/public/news/image/TimWilson20160215_0.jpg?itok=jUa84LIC" class="img-responsive">
+            </div>
+            <div class="col-xs-8 col-sm-9 col-md-10 col-lg-10">
+                <strong>{{future_host.username}}</strong><br>
+            </div>
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 dropdown-user" data-for=".cyruxx">
+                <i class="glyphicon glyphicon-chevron-down text-muted"></i>
+            </div>
+        </div>
+        <div class="row user-infos cyruxx">
+            <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 col-xs-offset-0 col-sm-offset-0 col-md-offset-1 col-lg-offset-1">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">User information</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 hidden-xs hidden-sm">  
+                                <img data-ng-if="future_host.final_image!==''" class="img-responsive" src="{{future_host.final_image}}" alt="Profile Picture">
+                                                      
+                                <img data-ng-if="future_host.final_image==''"
+                                     alt="User Pic" src="https://www.humanrights.gov.au/sites/default/files/styles/large/public/news/image/TimWilson20160215_0.jpg?itok=jUa84LIC" class="img-responsive">
+                            </div>
+                            <div class="col-xs-2 col-sm-2 hidden-md hidden-lg">
+                                  <img data-ng-if="future_host.final_image!==''" class="img-responsive" src="{{future_host.final_image}}" alt="Profile Picture">
+                            
+                                  <img data-ng-if="future_host.final_image==''"
+                                     alt="User Pic" src="https://www.humanrights.gov.au/sites/default/files/styles/large/public/news/image/TimWilson20160215_0.jpg?itok=jUa84LIC" class="img-responsive">
+                            </div>
+                            <div class="col-xs-10 col-sm-10 hidden-md hidden-lg">
+                                <dl>
+                                    <dt>First Name:</dt>
+                                    <dd>{{future_host.firstName}}</dd>
+                                    <dt>Last Name:</dt>
+                                    <dd>{{future_host.lastName}}</dd>
+                                    <dt>email</dt>
+                                    <dd>{{future_host.email}}</dd>
+                                    <dt>Birthday</dt>
+                                    <dd>{{future_host.birthday}}</dd>
+                                </dl>
+                            </div>
+                            <div class=" col-md-9 col-lg-9 hidden-xs hidden-sm">
+                                <strong>{{future_host.username}}</strong><br>
+                                <table class="table table-user-information">
+                                    <tbody>
+                                    <tr>
+                                        <td>First Name:</td>
+                                        <td>{{future_host.firstName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Last Name:</td>
+                                        <td>{{future_host.lastName}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>email</td>
+                                        <td>{{future_host.email}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Birthday</td>
+                                        <td>{{future_host.birthday}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <span class="pull-right">
+                            <input type="checkbox" ng-model="future_host.selected" style="width:30px;height:40px;"/>
+                        </span>
+                </div>
+            </div>
+          </div>
+   </div>      
+</div>
+</div>
+<input class="btn pull-right" type="submit" value="Submit"/>
+</form>
+</div>

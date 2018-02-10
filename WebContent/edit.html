@@ -1,0 +1,82 @@
+	<div class="row">
+		<div class="col-sm-4">
+      	</div>
+      	
+      	<div class="col-sm-4">
+			<div data-ng-controller="editCtrl">
+			<form name="editProfileForm" class="form-horizontal" data-ng-submit="UpdateProfile()">   <!-- used ngSubmit here -->
+				
+				<!-- Button to change the profile photo -->
+				<button class="btn btn-block" data-toggle="collapse" data-target="#image">Change Profile Image</button>
+				<div id="image" class="collapse">
+				<div class="form-group">
+					<label for="picture">Profile Photo:</label>
+					<input class="btn btn-default form-control" type="file"  data-ng-file-select="onFileSelect($files)" data-ng-model="imageSrc" >
+				</div>
+				</div>
+				
+				<div class="form-group">
+					<label for="username">Username:</label>
+					<input class="form-control" id="username" type="text" data-ng-value="username" data-ng-model="newuser.username" data-ng-keyup='checkName(newuser.username)' required="required"/>
+					<p data-ng-value="isSameName"></p>
+				</div>
+				<div id="n" class="alert alert-danger" data-ng-if="isSameName">username exists already</div>
+				<div class="form-group">	
+					<label for="firstName">First Name:</label>
+					<input class="form-control" id="firstName" type="text" data-ng-value="firstName" data-ng-model="newuser.firstName" required="required"/>
+				</div>
+				<div class="form-group">	
+					<label for="lastName">Last Name:</label>
+					<input class="form-control" id="lastName" type="text" data-ng-value="lastName" data-ng-model="newuser.lastName" required="required"/>
+				</div>
+				
+				<div class="form-group">	
+					<label for="email">Email:</label>
+					<input class="form-control" id="email" type="text" data-ng-value="email" data-ng-model="newuser.email" data-ng-keyup='checkEmail(newuser.email)' required="required"/>
+					<p data-ng-value="isSameEmail"></p>
+				</div>
+				<div class="alert alert-danger" data-ng-if="isSameEmail">email exists already</div>
+				
+				<div class="form-group">	
+					<label for="birthday">Birthday:</label>
+					<md-datepicker ng-value="birthday" ng-model="newuser.birthday" md-placeholder="Enter date"></md-datepicker>
+					
+				</div>
+
+								
+				<div class="form-group">	
+					<label for="password">Current Password:</label>
+					<input class="form-control" id="currentPassword" type="password" data-ng-model="currentPassword" required="required"/>
+				</div>
+				<div class="alert alert-danger" data-ng-if="currentPassword!==password">Wrong password</div>
+				
+				<!-- Button to make the password change optional -->				
+				<button class="btn btn-default"  data-toggle="collapse" data-target="#pass">Change Password</button>
+				
+				<div id="pass" class="collapse">
+				<div class="form-group">	
+					<label for="password">New Password:</label>
+					<input class="form-control" id="password" type="password" data-ng-model="newuser.password"/>
+				</div>
+				
+				<div class="form-group">	
+					<label for="verify">Verify New Password:</label>
+					<input class="form-control" id="verify" type="password" data-ng-model="verifyPass"/>
+				</div>
+				</div>
+				<div class="alert alert-danger" data-ng-if="newuser.password !== verifyPass ">New password does not match.</div>
+				<div class="checkbox-inline" data-ng-hide="host == true">
+					<label data-ng-hide="host == true"><input data-ng-hide="host == true" type="checkbox" data-ng-model="newuser.verifiedFromAdmin" data-ng-true-value="true" data-ng-false-value="false"/>Become a Host</label>
+				</div>
+				
+				<input class="btn btn-default btn-block" type="submit" value="save" data-ng-disabled="isSameName || isSameEmail || (newuser.password !== verifyPass)"/>
+
+			</form>
+			</div>
+		</div>
+		
+		<div class="col-sm-4">
+			
+      	</div>
+      	
+	</div>

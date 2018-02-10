@@ -1,0 +1,26 @@
+<div data-ng-controller="profileCtrl">
+	<div class="row">
+		<div class="col-sm-2"></div>
+		<div class="col-sm-2">
+			<!-- Profile Picture -->
+			<img data-ng-if="final_image==null" src="images/profile.jpg" class="img-responsive" alt="Profile Picture">
+			<img data-ng-if="final_image!==null" class="img-responsive text-center" src="{{final_image}}" alt="Profile Picture">
+			<div id="panel" class="panel panel-default">
+				<div class="panel-heading">Personal Information</div>
+    			<div class="panel-body">
+    				<p><b>Firstname:</b> {{firstName}} </p>
+    				<p><b>Lastname:</b> {{lastName}}</p>
+    				<p><b>email:</b> {{email}}</p>
+    				<p data-ng-if="verifiedFromAdmin == true && host == false "> Wait for validation</p>
+    			</div>
+  			</div>
+
+		</div>
+		<div class="col-sm-4">
+			<h1>Hello, I am {{username}}!</h1>
+			<a id="edit" data-ng-click="goToEdit()" href="" data-ng-hide="ID !== userID">Edit Profile</a>
+		</div>
+		<div class="col-sm-3">
+		</div>
+	</div>
+</div>

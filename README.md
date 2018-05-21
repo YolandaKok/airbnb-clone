@@ -1,4 +1,4 @@
-Web application for booking rooms.
+# Web application for booking rooms.
 
 A user of the application may be a host, a guest or he/she may remain anonymous. Each host manages several rooms (photos,
 availability, services) so that a guest that navigates the website can decide which one matches his/her preferences. A user
